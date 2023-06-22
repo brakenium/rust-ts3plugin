@@ -65,7 +65,7 @@ pub unsafe fn private_init<T: Plugin>() -> Result<(), ::InitError> {
 #[no_mangle]
 #[doc(hidden)]
 pub extern "C" fn ts3plugin_apiVersion() -> c_int {
-	23
+	26
 }
 
 #[allow(non_snake_case)]
@@ -476,7 +476,6 @@ pub unsafe extern "C" fn ts3plugin_onUpdateChannelEvent(server_id: u64,
 				},
 				Err(error) => Err(error),
 			}
-		} {
 		error!(api, "Can't get channel information", error);
 	} else {
 		plugin.channel_updated(api, server_id, channel_id, old_channel);
